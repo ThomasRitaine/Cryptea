@@ -4,7 +4,11 @@
         <h2>Connexion</h2>
         <div class="account__customer--login account__page account__page--small">
 
-        <form class="form form-login" method="POST" action="{{ route('login') }}" id="login-form">
+        <form class="form form-login" method="POST" action="javascript:void(0){{-- {{ route('login') }} --}}" id="login-form">
+
+            <div class="alert alert-success d-none" id="msg_div"> {{-- Bloc d'alerte du formulaire --}}
+                <span id="res_message"></span>
+           </div>
 
             <input type="hidden" name="action" value="userConnectAction" />
             <fieldset>            
@@ -43,7 +47,7 @@
 
                             </label>
                             <div class="control">
-                                <input  type="submit" value="Connexion" name="send" autocomplete="" placeholder="" class="cta"/>
+                                <input  type="submit" value="Connexion" id="send_login_form" name="send" autocomplete="" placeholder="" class="cta"/>
                             </div>
                         </div>                
                     </div>
@@ -53,7 +57,7 @@
         </form>
         
         <div class="new-account actions-toolbar">
-            <a  href="pages/creation_compte.html" 
+            <a  href="{{ route('register') }}" 
                 title="Créer mon compte" 
                 class="action remind link color-original font-bold">
                 Créer mon compte
@@ -63,6 +67,42 @@
     </div>
     </div>
 </div>
+
+<script>            //  AJAX pour log
+$(document).ready(function(){
+$('#send_login_form').click(function(e){
+   e.preventDefault();
+   /*Ajax Request Header setup*/
+   $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
+
+   $('#send_login_form').html('Sending..');
+   
+   /* Submit form data using ajax*/
+   $.ajax({
+      url: "{{ url('jquery-ajax-form-submit')}}",
+      method: 'post',
+      data: $('#login-form').serialize(),
+      success: function(response){
+         //------------------------
+            $('#send_login_form').html('Submit');
+            $('#res_message').show();
+            $('#res_message').html(response.msg);
+            $('#msg_div').removeClass('d-none');
+
+            document.getElementById("login-form").reset(); 
+            setTimeout(function(){
+            $('#res_message').hide();
+            $('#msg_div').hide();
+            },10000);
+         //--------------------------
+      }});
+   });
+});
+</script>
 
 @section('scripts')
 @parent

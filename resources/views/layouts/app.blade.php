@@ -12,8 +12,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://kit.fontawesome.com/49da28e01d.js" crossorigin="anonymous"></script>  <!-- Responsive -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://kit.fontawesome.com/49da28e01d.js" crossorigin="anonymous"></script>     <!-- Responsive -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>           <!-- AJAX -->
     <script src="{{ asset('js/typewriting.js') }}"></script>
     <script src="{{ asset('js/cryptage.js') }}"></script>
 
