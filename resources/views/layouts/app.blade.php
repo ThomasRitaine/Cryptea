@@ -17,6 +17,11 @@
     <script src="{{ asset('js/typewriting.js') }}"></script>
     <script src="{{ asset('js/cryptage.js') }}"></script>
 
+    <!-- Scripts Pop_up-->
+    @if($errors->has('email') || $errors->has('password'))
+    <script src="{{ asset('js/pop_up_happen.js') }}"></script>
+    @endif
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
@@ -25,7 +30,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
  
 </head>
-<body>
+<body @if($errors->has('email') || $errors->has('password')) onload="pop_up_happen()"  @endif >         <!-- Si il y a une erreur avec la connexion, ouvre le formulaire de connexion -->
     <div id="app">
         <div id="menu">
         
@@ -36,18 +41,28 @@
                     
                 <li><a class="rubrique" id="lock" style="cursor: pointer" data-toggle="modal" data-target="#loginModal"><i class="fas fa-lock"></i></a></li>
 
-                @include('partials.login')
+                @include('partials.loginModal')
             
-            <script src="{{ asset('js/pop_up.js') }}"></script>
+            
 
                 @else
 
-                <li><a class="rubrique" id="unlock" href="#"><i class="fas fa-lock-open"></i></a></li>
+                <li><a class="rubrique" id="unlock" href="#"><i class="fas fa-lock-open"></i></a>
+                    <ul>
+                        <li><a href="{{ route('logout') }}" onclick="   event.preventDefault();
+                                                                        document.getElementById('logout-form').submit();">
+                            Se déconnecter
+                        </a></li>
 
-                <ul>
-                    <li><a href="pages/crypthill.html">Se déconnecter</a></li>
-                    <li><a href="pages/cryptdeca.html">Profil</a></li>
-                </ul>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                        <li><a href="pages/cryptdeca.html">Mon profil</a></li>
+                    </ul>
+                </li>
+
+                
 
                 @endguest
 

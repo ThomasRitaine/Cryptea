@@ -5,14 +5,19 @@
         <div class="account__customer--login account__page account__page--small">
 
         <form class="form form-login" method="POST" action="{{ route('login') }}" id="login-form">
+            @csrf
 
-            <input type="hidden" name="action" value="userConnectAction" />
             <fieldset>            
                 <div class="row"> 
                     <div class="field required email">
                         <label for="email">Email</label>
                         <div class="control">
-                            <input  type="text" name="pseudo_email" id="email" required/>
+                            <input  class="@error('email') is-invalid @enderror" type="email" name="email" id="email" value="{{ old('email') }}" required/>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>            
                 </div>
@@ -21,16 +26,20 @@
                     <div class="field required password">
                         <label for="password">Mot de passe</label>
                         <div class="control">
-                        <input type="password" name="password" id="password" required="">
+                            <input type="password" name="password" id="password" required class="@error('password') is-invalid @enderror">
 <!--                            <span onclick="Toggle()" toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>-->
-                            
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>                
                     <div class="forgotten-password">
-                    <a href="http://localhost/Cryptea/app/router/router.php?action=userForgottenPasswordForm">Mot de passe oublié ?</a>
+                    <a href="{{ route('password.request') }}">Mot de passe oublié ?</a>
                     </div>
                     
-                    <input type="checkbox" id="auto_connect" name="auto_connect" checked="checked">
+                    <input type="checkbox" id="auto_connect" name="remember" {{ old('remember') ? 'checked' : '' }}>
                     <label for="auto_connect" id="auto_connect_label">Connexion automatique</label>
                     
                 </div>
@@ -53,9 +62,7 @@
         </form>
         
         <div class="new-account actions-toolbar">
-            <a  href="pages/creation_compte.html" 
-                title="Créer mon compte" 
-                class="action remind link color-original font-bold">
+            <a href="{{ route('register') }}" class="action remind link color-original font-bold">
                 Créer mon compte
             </a>
         </div>
@@ -64,16 +71,11 @@
     </div>
 </div>
 
+<!-- Scripts Pop_up-->
+<script src="{{ asset('js/pop_up.js') }}"></script>
+
 @section('scripts')
 @parent
 
-@if($errors->has('email') || $errors->has('password'))
-    <script>
-    $(function() {
-        $('#loginModal').modal({
-            show: true
-        });
-    });
-    </script>
-@endif
+
 @endsection
