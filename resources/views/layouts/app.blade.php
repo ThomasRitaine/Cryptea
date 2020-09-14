@@ -18,7 +18,7 @@
     <script src="{{ asset('js/cryptage.js') }}"></script>
 
     <!-- Scripts Pop_up-->
-    @if($errors->has('email') || $errors->has('password'))
+    @if($errors->has('email') || $errors->has('password') || isset($openPopUp) )
     <script src="{{ asset('js/pop_up_happen.js') }}"></script>
     @endif
 
@@ -28,14 +28,29 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- Pour faire fonctionner les effets sur les pourcentages sur la page fonctionnement -->
+    @if(Route::current()->getName() == 'fonctionnement')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.3.0/snap.svg-min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+        <link rel='stylesheet' href='https://unpkg.com/aos@2.3.0/dist/aos.css'><link rel="stylesheet" href="./style.css">
+    @endif
+    
  
 </head>
-<body @if($errors->has('email') || $errors->has('password')) onload="pop_up_happen()"  @endif >         <!-- Si il y a une erreur avec la connexion, ouvre le formulaire de connexion -->
+<body @if($errors->has('email') || $errors->has('password') || isset($openPopUp) ) onload="pop_up_happen()" @endif > {{-- Si il y a une erreur avec la connexion ou si accès par cryptea/login, ouvre le formulaire de connexion --}}
     <div id="app">
         <div id="menu">
         
             <ul id="nav">
-                <a href="indextea.html"><img src="{{ asset('images/Logoaccueil.png') }}" alt="Logo_accueil"></a>
+
+                <!-- Affichage du logo sans lien sur la page d'accueil, et logo + nom avec lien sur les autres pages -->
+                @if(Route::current()->getName() == 'welcome' || Route::current()->getName() == 'login')
+                    <a href=""><img src="{{ asset('images/Logoaccueil.png') }}" alt="Logo_accueil"></a>
+                @else
+                    <a href="{{ route('welcome') }}"><img id="logopages" src="{{ asset('images/Logopages.png') }}" alt="Logo_accueil"></a>
+                @endif
+
                 
                 @guest
                     
@@ -58,7 +73,7 @@
                             @csrf
                         </form>
 
-                        <li><a href="pages/cryptdeca.html">Mon profil</a></li>
+                        <li><a href="{{ route('profil') }}">Mon profil</a></li>
                     </ul>
                 </li>
 
@@ -72,21 +87,21 @@
                
 
                 
-                <li><a class="rubrique" href="pages/contact.html">Contact</a></li>
+                <li><a class="rubrique" href="{{ route('contact') }}">Contact</a></li>
 
                 <li><a class="rubrique" href="#">Cryptea-lab</a>
                      <ul>
-                         <li><a href="pages/crypthill.html">Cryptage de Hill</a></li>
-                         <li><a href="pages/cryptclef.html">Cryptage avec clef</a></li>
-                         <li><a href="pages/cryptaffine.html">Cryptage affine</a></li>
-                         <li><a href="pages/cryptdeca.html">Cryptage par décalage</a></li>
+                         <li><a href="{{ route('hill') }}">Cryptage de Hill</a></li>
+                         <li><a href="{{ route('clef') }}">Cryptage avec clef</a></li>
+                         <li><a href="{{ route('affine') }}">Cryptage affine</a></li>
+                         <li><a href="{{ route('decalage') }}">Cryptage par décalage</a></li>
                      </ul>
                 </li>
 
                 <li><a class="rubrique" href="#">Présentation</a>
                      <ul>
-                         <li><a href="pages/presentation.html#securite">Niveaux de sécurité</a></li>
-                         <li><a href="pages/presentation.html">Fonctionnement</a></li>
+                         <li><a href="{{ route('securite') }}">Niveaux de sécurité</a></li>
+                         <li><a href="{{ route('fonctionnement') }}">Fonctionnement</a></li>
                     </ul>
                 </li>
             </ul>

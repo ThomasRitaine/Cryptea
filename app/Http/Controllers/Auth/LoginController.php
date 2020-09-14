@@ -37,4 +37,27 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    // -------------------------------------------------------
+    // Laravel overwrites for loading backpack views
+    // -------------------------------------------------------
+
+
+    /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function showLoginForm()
+    {
+        // return view('/login', function () {
+        //     $openPopUp =  true;
+        //     return view('welcome');
+        // });
+        return view('welcome', [
+            'openPopUp' =>  true
+        ]);
+    }
 }
