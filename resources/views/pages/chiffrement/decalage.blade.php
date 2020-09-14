@@ -62,7 +62,7 @@
                     <div>
                         <form>
                             <div class="col-xs-12">
-                                <textarea id="myInput" class="texte-output" type="text" name="texte-output-chiffrement-decalage" rows="4%" cols="72%" placeholder="Le texte crypté ou décrypté apparaîtra ici."></textarea>
+                                <textarea id="textDone" class="texte-output" type="text" name="texte-output-chiffrement-decalage" rows="4%" cols="72%" placeholder="Le texte crypté ou décrypté apparaîtra ici."></textarea>
                             </div>
                             <div class="col-xs-12">
                                 <button id="copy-texte-output-chiffrement-decalage" class="btn btn-default copy-texte-output-chiffrement" data-clipboard-target="#texte-output-chiffrement-decalage" onclick="myFunction()">
@@ -81,6 +81,10 @@
         </div>
         
     </section>
+
+    <!-- Script to make it work -->
+    <script src="{{ asset('js/chiffrement/decalage.js') }}"></script>
+    <script src="{{ asset('js/chiffrement/copy.js') }}"></script>
 
 </div>
 @endsection
