@@ -1,9 +1,9 @@
 
 // COPY
 
-function myFunction() {
+function copy() {
     /* Get the text field */
-    var copyText = document.getElementById("textDone");
+    var copyText = document.getElementById("textOutput");
   
     /* Select the text field */
     copyText.select();

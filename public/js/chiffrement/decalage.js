@@ -19,12 +19,12 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
     var autorisationVerifQueChiffreDecalage = true;
     var textBaseFilled = true;
     
-    if(document.getElementById("texte-input-chiffrement-decalage").value === "") {
-        var textBaseFilled = false;
+    if(document.getElementById("textInput").value === "") {
+        textBaseFilled = false;
     };
     
     if(document.getElementById("input-decalage").value === "") {
-        var autorisationVerifQueChiffreDecalage = false;
+        autorisationVerifQueChiffreDecalage = false;
     };
     
         //  Make sure that input of integer is filled with integer
@@ -58,14 +58,14 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
 
         //  All conditions are satisfied, let's gooooooo
     if(textBaseFilled && verifQueChiffreDecalage) { // DEDANS, PROGRAMME DE CRYPTAGE DECALAGE
-        var textToDo = document.getElementById("texte-input-chiffrement-decalage").value;
+        var textToDo = document.getElementById("textInput").value;
         var decalage = document.getElementById("input-decalage").value;
         decalage = Number(decalage);
 
         if(document.getElementById("action-crypter-cryptage-decalage").checked) {
-            var actionCryptageDecalage = true;
+            var actionCryptage = true;
         } else {
-            var actionCryptageDecalage = false;
+            var actionCryptage = false;
             decalage = -1 * decalage;
         };
         
@@ -121,14 +121,14 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
                     while(textDoneArNmb[i] >= 26) {textDoneArNmb[i] -= 26};
                     textDoneAr[i] = alphabet[textDoneArNmb[i]];
                 } else {
-                    if(actionCryptageDecalage == false) {textDoneArNmb[i] +=4;};
+                    if(actionCryptage == false) {textDoneArNmb[i] +=4;};
                     while(textDoneArNmb[i] >= 10) {textDoneArNmb[i] -= 10};
                     textDoneAr[i] = chiffre[textDoneArNmb[i]];
                 };
             } else {
                 textDoneAr[i] = textToDoAr[i];
             };
-            if(actionCryptageDecalage && randomAccentMajusculeCryptage && (textDoneAr[i] == "a" || textDoneAr[i] == "e" || textDoneAr[i] == "i" || textDoneAr[i] == "o" || textDoneAr[i] == "u" || textDoneAr[i] == "c")) {
+            if(actionCryptage && randomAccentMajusculeCryptage && (textDoneAr[i] == "a" || textDoneAr[i] == "e" || textDoneAr[i] == "i" || textDoneAr[i] == "o" || textDoneAr[i] == "u" || textDoneAr[i] == "c")) {
                 var changeLetter = Math.round(Math.random()*3);
                 if(changeLetter == 0) {
                     if(textDoneAr[i] == "a") {
@@ -160,7 +160,7 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
                 };
             };
             var upperCaseLetter = Math.round(Math.random()*2.75);
-            if(actionCryptageDecalage && randomAccentMajusculeCryptage && upperCaseLetter == 0) {
+            if(actionCryptage && randomAccentMajusculeCryptage && upperCaseLetter == 0) {
                 textDoneAr[i] = textDoneAr[i].toUpperCase();
             };
             i++;

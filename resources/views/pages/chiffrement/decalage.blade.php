@@ -10,8 +10,6 @@
             <span class="wrap"></span>
           </a>
         </h2>
-
-        <script  src="../script/typewriting.js"></script>
         
         <p>Saisissez un texte à crypter ou à décrypter, entrez la valeur du décalage, puis appuyez sur valider.<br />Le texte décrypté ou décrypté apparaîtra alors !</p>
     
@@ -62,12 +60,11 @@
                     <div>
                         <form>
                             <div class="col-xs-12">
-                                <textarea id="textDone" class="texte-output" type="text" name="texte-output-chiffrement-decalage" rows="4%" cols="72%" placeholder="Le texte crypté ou décrypté apparaîtra ici."></textarea>
+                                <textarea id="textOutput" class="texte-output" type="text" name="textOutput-decalage" rows="4%" cols="72%" placeholder="Le texte crypté ou décrypté apparaîtra ici."></textarea>
                             </div>
                             <div class="col-xs-12">
-                                <button id="copy-texte-output-chiffrement-decalage" class="btn btn-default copy-texte-output-chiffrement" data-clipboard-target="#texte-output-chiffrement-decalage" onclick="myFunction()">
-                                    Copier dans le<br>presse papier
-                                </button>
+
+                                @include('partials.btnCopy')
     
                             </div>
                         </form>
