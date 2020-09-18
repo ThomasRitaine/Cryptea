@@ -20,6 +20,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('/', 'welcome')->name('welcome');
 
+Route::redirect('/dev', 'https://github.com/ThomasRitaine/Cryptea')->name('dev');
+
 
 
 //  Routing des pages

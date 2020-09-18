@@ -4,18 +4,37 @@
 
 //  Generate a random number for the input decalage
 
-document.getElementById("avant-input-btn-group-decalage").addEventListener("click", function() {
+document.getElementById("btnGenerateKey").addEventListener("click", function() {
     randomDecalage = Math.floor(Math.random() * 400) - 200;
-    document.getElementById("input-decalage").setAttribute("value", randomDecalage);
+    document.getElementById("input-decalage").value = randomDecalage;
 });
 
 
 
 // Code of the shift encryption
 
-document.getElementById("button-valider-cryptage-decalage").addEventListener("click", function() {
+document.getElementById("btnStartEncryption").addEventListener("click", function() {
         
-        //  Verif that inputs ar OK (not empty and with no forbidden caracters)
+        // Récupération des inputs
+    var decalage = document.getElementById("input-decalage").value;
+
+    var textToDo = document.getElementById("textInput").value;
+
+    if(document.getElementById("action-chiffrer").checked) {
+        var actionChiffrement = true;
+    } else {
+        var actionChiffrement = false;
+    };
+
+    if(document.getElementById("random-accent-majuscule").checked) {
+        var randomAccentMajusculeCryptage = false;
+    } else {
+        var randomAccentMajusculeCryptage = true;
+    }
+
+
+
+        //  Verif that inputs are OK (not empty and with no forbidden caracters)
     var autorisationVerifQueChiffreDecalage = true;
     var textBaseFilled = true;
     
@@ -29,7 +48,7 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
     
         //  Make sure that input of integer is filled with integer
     if(autorisationVerifQueChiffreDecalage) {
-        var decalageAr = Array.from(document.getElementById("input-decalage").value);
+        var decalageAr = Array.from(decalage);
         var chiffreEtMoins = [0,1,2,3,4,5,6,7,8,9,"-"];
         var verifQueChiffreDecalage = true;
         var moinsEnTrop = false;
@@ -58,24 +77,8 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
 
         //  All conditions are satisfied, let's gooooooo
     if(textBaseFilled && verifQueChiffreDecalage) { // DEDANS, PROGRAMME DE CRYPTAGE DECALAGE
-        var textToDo = document.getElementById("textInput").value;
-        var decalage = document.getElementById("input-decalage").value;
-        decalage = Number(decalage);
 
-        if(document.getElementById("action-crypter-cryptage-decalage").checked) {
-            var actionCryptage = true;
-        } else {
-            var actionCryptage = false;
-            decalage = -1 * decalage;
-        };
-        
-        if(document.getElementById("random-accent-majuscule-cryptage-decalage").checked) {
-            var randomAccentMajusculeCryptage = false;
-        } else {
-            var randomAccentMajusculeCryptage = true;
-        }
-        
-        
+
         //  PROGRAMME DE CRYPTAGE DECALAGE
         textToDo = textToDo.toLowerCase();
         textToDo = textToDo.replace(/à/g, "a");
@@ -94,6 +97,8 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
         textToDo = textToDo.replace(/ç/g, "c");
         var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
         var chiffre = ["0","1","2","3","4","5","6","7","8","9"];
+        decalage = Number(decalage);
+        if(!actionChiffrement) {decalage = -1 * decalage;}
         while(decalage >=26) {decalage -= 26};
         while(decalage < 0) {decalage += 26};
         var textToDoAr = Array.from(textToDo);
@@ -121,14 +126,14 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
                     while(textDoneArNmb[i] >= 26) {textDoneArNmb[i] -= 26};
                     textDoneAr[i] = alphabet[textDoneArNmb[i]];
                 } else {
-                    if(actionCryptage == false) {textDoneArNmb[i] +=4;};
+                    //if(actionChiffrement == false) {textDoneArNmb[i] +=4;};
                     while(textDoneArNmb[i] >= 10) {textDoneArNmb[i] -= 10};
                     textDoneAr[i] = chiffre[textDoneArNmb[i]];
                 };
             } else {
                 textDoneAr[i] = textToDoAr[i];
             };
-            if(actionCryptage && randomAccentMajusculeCryptage && (textDoneAr[i] == "a" || textDoneAr[i] == "e" || textDoneAr[i] == "i" || textDoneAr[i] == "o" || textDoneAr[i] == "u" || textDoneAr[i] == "c")) {
+            if(actionChiffrement && randomAccentMajusculeCryptage && (textDoneAr[i] == "a" || textDoneAr[i] == "e" || textDoneAr[i] == "i" || textDoneAr[i] == "o" || textDoneAr[i] == "u" || textDoneAr[i] == "c")) {
                 var changeLetter = Math.round(Math.random()*3);
                 if(changeLetter == 0) {
                     if(textDoneAr[i] == "a") {
@@ -160,12 +165,12 @@ document.getElementById("button-valider-cryptage-decalage").addEventListener("cl
                 };
             };
             var upperCaseLetter = Math.round(Math.random()*2.75);
-            if(actionCryptage && randomAccentMajusculeCryptage && upperCaseLetter == 0) {
+            if(actionChiffrement && randomAccentMajusculeCryptage && upperCaseLetter == 0) {
                 textDoneAr[i] = textDoneAr[i].toUpperCase();
             };
             i++;
         };
         var textDone = textDoneAr.join("");
-        document.getElementById("textDone").value = textDone;
+        document.getElementById("textOutput").value = textDone;
     };
 });

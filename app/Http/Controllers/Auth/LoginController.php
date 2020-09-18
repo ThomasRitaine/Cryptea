@@ -52,10 +52,6 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        // return view('/login', function () {
-        //     $openPopUp =  true;
-        //     return view('welcome');
-        // });
         return view('welcome', [
             'openPopUp' =>  true
         ]);

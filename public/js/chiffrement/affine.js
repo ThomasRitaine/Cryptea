@@ -4,7 +4,7 @@
 
 //  Generate a random number for the input affine-a
 
-document.getElementById("avant-input-btn-group-affine-a").addEventListener("click", function() {
+document.getElementById("btnGenerateKey-a").addEventListener("click", function() {
     var previousRandomAffineA = document.getElementById("input-affine-a").value;
     var randomAffineA = previousRandomAffineA;
     var randomAffineAValeurAutorise = [3,5,7,9,11,15,17,19,21,23,25];
@@ -17,7 +17,7 @@ document.getElementById("avant-input-btn-group-affine-a").addEventListener("clic
 
 //  Generate a random number for the input affine-b
 
-document.getElementById("avant-input-btn-group-affine-b").addEventListener("click", function() {
+document.getElementById("btnGenerateKey-b").addEventListener("click", function() {
     var previousRandomAffineB = document.getElementById("input-affine-b").value;
     var randomAffineB = previousRandomAffineB;
     while(randomAffineB == previousRandomAffineB  || randomAffineB > 20 || randomAffineB < -20) {
@@ -40,8 +40,27 @@ document.getElementById("avant-input-btn-group-affine-b").addEventListener("clic
 
 // Code of the affine encryption
 
-document.getElementById("button-valider-cryptage-affine").addEventListener("click", function() {
+document.getElementById("btnStartEncryption").addEventListener("click", function() {
         
+        // Récupération des inputs
+    var affineA = document.getElementById("input-affine-a").value;
+    var affineB = document.getElementById("input-affine-b").value;
+
+    var textToDo = document.getElementById("textInput").value;
+
+    if(document.getElementById("action-chiffrer").checked) {
+        var actionChiffrement = true;
+    } else {
+        var actionChiffrement = false;
+    };
+
+    if(document.getElementById("random-accent-majuscule").checked) {
+        var randomAccentMajusculeCryptage = false;
+    } else {
+        var randomAccentMajusculeCryptage = true;
+    }
+
+
         //  Verif that inputs ar OK (not empty and with no forbidden caracters)
     var autorisationVerifAffineA = true;
     var autorisationVerifAffineB = true;
@@ -51,11 +70,11 @@ document.getElementById("button-valider-cryptage-affine").addEventListener("clic
         textBaseFilled = false;
     };
     
-    if(document.getElementById("input-affine-a").value === "") {
+    if(affineA === "") {
         autorisationVerifAffineA = false;
     };
 
-    if(document.getElementById("input-affine-b").value === "") {
+    if(affineB === "") {
         autorisationVerifAffineB = false;
     };
     
@@ -63,7 +82,7 @@ document.getElementById("button-valider-cryptage-affine").addEventListener("clic
     if(autorisationVerifAffineA) {
         var verifAffineA = true;
         var affineAValeurAutorise = [1,3,5,7,9,11,15,17,19,21,23,25];
-        if(affineAValeurAutorise.lastIndexOf(Number(document.getElementById("input-affine-a").value)) == -1) {
+        if(affineAValeurAutorise.lastIndexOf(Number(affineA)) == -1) {
             verifAffineA = false;
         };
         if(!verifAffineA) { // MESSAGE D'ERREUR INPUT-CLEF
@@ -75,7 +94,6 @@ document.getElementById("button-valider-cryptage-affine").addEventListener("clic
     if(autorisationVerifAffineB) {
         var verifAffineB = true;
         var chiffreEtMoins = [0,1,2,3,4,5,6,7,8,9,"-"];
-        var affineB = document.getElementById("input-affine-b").value;
         var affineBAr = Array.from(affineB);
         var moinsEnTrop = false;
         var i=0;
@@ -112,23 +130,8 @@ document.getElementById("button-valider-cryptage-affine").addEventListener("clic
         //  All conditions are satisfied, let's gooooooo
     if(textBaseFilled && verifAffineA && verifAffineB) { // DEDANS, PROGRAMME DE CRYPTAGE AFFINE
         if(textBaseFilled && verifAffineA && verifAffineB) {
-            var textToDo = document.getElementById("textInput").value;
-            var affineA = document.getElementById("input-affine-a").value;
             affineA = Number(affineA);
-            var affineB = document.getElementById("input-affine-b").value;
             affineB = Number(affineB);
-
-            if(document.getElementById("action-crypter-cryptage-affine").checked) {
-                var actionCryptage = true;
-            } else {
-                var actionCryptage = false;
-            };
-            
-            if(document.getElementById("random-accent-majuscule-cryptage-affine").checked) {
-                var randomAccentMajusculeCryptage = false;
-            } else {
-                var randomAccentMajusculeCryptage = true;
-            }
 
             //  PROGRAMME DE CRYPTAGE AFFINE
             textToDo = textToDo.toLowerCase();
@@ -164,7 +167,7 @@ document.getElementById("button-valider-cryptage-affine").addEventListener("clic
             while(i !== textToDoAr.length) {     //MEGA WHILE
                 if(textToDoArNmb[i] !== -1){
                     
-                    if(actionCryptage) {
+                    if(actionChiffrement) {
                         textDoneArNmb[i] = textToDoArNmb[i] * affineA + affineB;
                         while(textDoneArNmb[i] >= 26) {textDoneArNmb[i] -= 26};
                         while(textDoneArNmb[i] < 0) {textDoneArNmb[i] += 26};
@@ -189,7 +192,7 @@ document.getElementById("button-valider-cryptage-affine").addEventListener("clic
                 } else {
                     textDoneAr[i] = textToDoAr[i];
                 };
-                if(actionCryptage  && randomAccentMajusculeCryptage && (textDoneAr[i] == "a" || textDoneAr[i] == "e" || textDoneAr[i] == "i" || textDoneAr[i] == "o" || textDoneAr[i] == "u" || textDoneAr[i] == "c")) {
+                if(actionChiffrement  && randomAccentMajusculeCryptage && (textDoneAr[i] == "a" || textDoneAr[i] == "e" || textDoneAr[i] == "i" || textDoneAr[i] == "o" || textDoneAr[i] == "u" || textDoneAr[i] == "c")) {
                     var changeLetter = Math.round(Math.random()*3);
                     if(changeLetter == 0) {
                         if(textDoneAr[i] == "a") {
@@ -221,7 +224,7 @@ document.getElementById("button-valider-cryptage-affine").addEventListener("clic
                     };
                 };
                 var upperCaseLetter = Math.round(Math.random()*2.75);
-                if(actionCryptage  && randomAccentMajusculeCryptage && upperCaseLetter == 0) {
+                if(actionChiffrement  && randomAccentMajusculeCryptage && upperCaseLetter == 0) {
                     textDoneAr[i] = textDoneAr[i].toUpperCase();
                 };
                 i++;

@@ -70,4 +70,22 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+
+
+
+    // -------------------------------------------------------
+    // Laravel overwrites for loading backpack views
+    // -------------------------------------------------------
+
+
+    /**
+     * Show the application login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function showRegistrationForm()
+    {
+        return view('pages.register');
+    }
 }

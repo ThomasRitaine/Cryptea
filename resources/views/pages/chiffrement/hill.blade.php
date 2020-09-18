@@ -19,17 +19,17 @@
             <div class="crypt-block">
                 
                 <form>
-                     <div class="little_box_control_center one_box_one">
-                        <input id="action-crypter-cryptage-hill" type="radio" value="crypter" name="action-cryptage-hill" checked><span class="radio-text"> Crypter mon message.</span>
+                    <div class="little_box_control_center one_box_one">
+                        <input id="action-chiffrer" type="radio" value="chiffrer" name="action-chiffrement" checked><span class="radio-text"> Chiffrer mon message.</span>
                         <br><br>
-                        <input id="action-decrypter-cryptage-hill" type="radio" value="decrypter" name="action-cryptage-hill"><span class="radio-text"> Décrypter le message.</span>
+                        <input type="radio" value="déchiffrer" name="action-chiffrement"><span class="radio-text"> Déchiffrer mon message.</span>
                     </div>
                 
 
                     <div class="little_box_control_center one_box_two">
                         <label class="switch">
-                            <input id="random-accent-majuscule-cryptage-hill" type="checkbox" value="none-random-accent-majuscule-cryptage-hill" name="random-accent-majuscule-cryptage-hill"><span class="slider round"></span>
-                        </label><span class="radio-text"> Je ne souhaite pas mettre de majuscules et d'accents aléatoires dans mon message crypté.</span>
+                            <input id="random-accent-majuscule" type="checkbox" value="none-random-accent-majuscule" name="random-accent-majuscule"><span class="slider round"></span>
+                        </label><span class="radio-text"> Je ne souhaite pas mettre de majuscules et d'accents aléatoires dans mon message chiffré.</span>
                         <div class="clear"></div>
                     </div>
                 </form>
@@ -46,7 +46,7 @@
                         <div class="col-md-4">
                             <form>
                                 <div id="group-hill-input" class="btn-group" role="group">
-                                    <button id="avant-input-btn-group-hill" type="button" class="btn btn-default avant-input-btn-group-double" data-placement="top" data-toggle="tooltip" title="Génère une valeur de la matrice aléatoire"><i class="fas fa-random"></i></button>
+                                    <button id="btnGenerateKey" type="button" class="btn btn-default avant-input-btn-group-double" data-placement="top" data-toggle="tooltip" title="Génère une valeur de la matrice aléatoire"><i class="fas fa-random"></i></button>
                                     <div id="first-group-hill" class="btn-group-vertical" role="group">
                                         <input id="input-hill-a" class="btn input-btn-group" type="text" name="input-hill-a" placeholder="a">
                                         <input id="input-hill-c" class="btn input-btn-group" type="text" name="input-hill-c" placeholder="c">
@@ -65,7 +65,7 @@
                     
                     <div class="little_box_control_center one_box_four">
                         <div class="col-md-2">
-                            <button id="button-valider-cryptage-hill" type="button" class="btn btn-default button-valider"><span class="glyphicon glyphicon-ok"></span>Valider</button>
+                            <button id="btnStartEncryption" type="button" class="btn btn-default button-valider"><span class="glyphicon glyphicon-ok"></span>Valider</button>
                         </div>
                     </div>
                 </div>
@@ -93,6 +93,10 @@
         </div>
     
     </section>
+
+    <!-- Script to make it work -->
+    <script src="{{ asset('js/chiffrement/hill.js') }}"></script>
+    <script src="{{ asset('js/chiffrement/copy.js') }}"></script>
 
 </div>
 @endsection
