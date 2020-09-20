@@ -10,7 +10,7 @@ use Illuminate\Auth\Notifications\VerifyEmail;
 
 use Illuminate\Foundation\Auth\User;
 
-class VerifyEmailNotification extends VerifyEmail
+class ResetPasswordNotification extends VerifyEmail
 {
     use Queueable;
 
@@ -19,9 +19,12 @@ class VerifyEmailNotification extends VerifyEmail
      *
      * @return void
      */
-    public function __construct()
+
+    private $token;
+
+    public function __construct($data)
     {
-        //
+        $this->token = $data;
     }
 
     /**
@@ -43,11 +46,14 @@ class VerifyEmailNotification extends VerifyEmail
      */
     public function toMail($notifiable)
     {
-        $verificationUrl = $this->verificationUrl($notifiable);
+        $url = url(config('app.url') . route('password.reset', [
+                'token' => $this->token,
+                'email' => $notifiable->getEmailForPasswordReset(),
+            ], false));
 
         $user = User::where('id', $notifiable->id)->first();
 
-        return (new MailMessage)->view('mails.welcomeVerify', ['url' => $verificationUrl, 'user' => $user]);
+        return (new MailMessage)->view('mails.resetPassword', ['url' => $url, 'user' => $user]);
     }
 
     /**
