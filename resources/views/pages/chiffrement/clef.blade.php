@@ -36,31 +36,36 @@
                 
                     <div class="col-md-3">
                         <form>
-                            <div class="btn-group btn-group-double">
+                            <div class="little_box_control_center one_box_three">
+                                <textarea id="textInput" class="texte-input" type="text" name="texte-input-chiffrement-hill" placeholder="Saisissez ici votre message à crypter ou à décrypter."></textarea>
                                 <button id="btnGenerateKey" type="button" class="btn btn-default avant-input-btn-group-double" data-placement="top" data-toggle="tooltip" title="Génère une clef aléatoire"><span class="glyphicon glyphicon-random"></span></button>
-                                <textarea id="input-clef" class="input-btn-group" type="text" name="input-clef" placeholder="Contenu de la clef"></textarea>
+                                <textarea id="input-clef" class="input-btn-group texte-input" type="text" name="input-clef" placeholder="Contenu de la clef"></textarea>
                             </div>
                         </form>
                     </div>
                     
-                    <div class="col-md-2">
+                    <div class="little_box_control_center one_box_four">
                         <button id="btnStartEncryption" type="button" class="btn btn-default button-valider"><span class="glyphicon glyphicon-ok"></span>Valider</button>
                     </div>
-                </div>
-                <div class="result">
-                    <span class="glyphicon glyphicon-arrow-down"></span>
-                    <div>
-                        <form>
-                            <div class="col-xs-12">
-                                <textarea id="textOutput" class="texte-output" type="text" name="textOutput-clef" placeholder="Saisissez un texte à crypter ou à décrypter, entrez le contenu de la clef, puis appuyez sur valider et le texte crypté ou décrypté apparaîtra ici."></textarea>
-                            </div>
-                            <div class="col-xs-12">
-                                
-                                @include('partials.btnCopy')
+            
+            
+                    <div class="little_box_control_center one_box_five">
+                        <div>
+                            <form>
+                                <div class="col-xs-12">
+                                    <textarea id="textOutput" class="texte-output" type="text" name="textOutput-clef" placeholder="Saisissez un texte à crypter ou à décrypter, entrez le contenu de la clef, puis appuyez sur valider et le texte crypté ou décrypté apparaîtra ici."></textarea>
+                                </div>
+                                <div class="col-xs-12">
 
-                            </div>
-                        </form>
+                                    @include('partials.btnCopy')
+
+                                </div>
+                            </form>
+                        </div>
                     </div>
+                
+                <div class="clear"></div>
+                
                 </div>
             </div>
     
