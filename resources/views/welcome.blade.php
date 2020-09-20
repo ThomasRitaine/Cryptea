@@ -26,15 +26,15 @@
 
         <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
         <div class="box-wrap">
-          <div class="box">
+          <div class="box_accueil">
             <i class="fas fa-pencil-alt"></i>
             <p>Écrire</p>
           </div>
-          <div class="box">
+          <div class="box_accueil">
             <i id="eye" class="fas fa-eye-slash"></i>
             <p>Crypter</p>
           </div>
-          <div class="box">
+          <div class="box_accueil">
             <i class="far fa-paper-plane"></i>
             <p>Envoyer</p>
           </div>

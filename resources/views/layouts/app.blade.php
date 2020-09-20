@@ -24,7 +24,10 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
-
+    @if(Route::current()->getName() == 'profil')
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&family=Montserrat:ital,wght@0,300;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    @endif
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 

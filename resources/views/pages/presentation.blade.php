@@ -89,7 +89,7 @@
             </div>
             <div class="module_bulle justify">
                 <p>
-                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published. It follows Clary Fray (who interacts with a group of Nephilim known as Shadowhunters) while also discovering her own heritage. The Shadowhunters protect the world of mundane people, who are also called mundanes or "mundies", from dark forces beyond their world.
+                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published.
                 </p>
             </div>
             <div class="clear"></div>
@@ -98,7 +98,7 @@
         <div class="module" data-aos="fade-right">
             <div class="module_bulle justify">
                 <p>
-                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published. It follows Clary Fray (who interacts with a group of Nephilim known as Shadowhunters) while also discovering her own heritage. The Shadowhunters protect the world of mundane people, who are also called mundanes or "mundies", from dark forces beyond their world.
+                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published.
                 </p>
             </div>
             <div class="module_bulle">
@@ -142,7 +142,7 @@
             </div>
             <div class="module_bulle justify">
                 <p>
-                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published. It follows Clary Fray (who interacts with a group of Nephilim known as Shadowhunters) while also discovering her own heritage. The Shadowhunters protect the world of mundane people, who are also called mundanes or "mundies", from dark forces beyond their world.
+                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published.
                 </p>
             </div>
             <div class="clear"></div>
@@ -151,7 +151,7 @@
         <div class="module" data-aos="fade-right">
             <div class="module_bulle justify">
                 <p>
-                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published. It follows Clary Fray (who interacts with a group of Nephilim known as Shadowhunters) while also discovering her own heritage. The Shadowhunters protect the world of mundane people, who are also called mundanes or "mundies", from dark forces beyond their world.
+                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published.
                 </p>
             </div>
             <div class="module_bulle">
@@ -194,7 +194,7 @@
             </div>
             <div class="module_bulle justify">
                 <p>
-                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published. It follows Clary Fray (who interacts with a group of Nephilim known as Shadowhunters) while also discovering her own heritage. The Shadowhunters protect the world of mundane people, who are also called mundanes or "mundies", from dark forces beyond their world.
+                    The Mortal Instruments is a series of six young adult fantasy novels written by Cassandra Clare, the last of which was published on May 27, 2014. The Mortal Instruments is chronologically the third series of a proposed five in The Shadowhunter Chronicles but it was the first one published.
                 </p>
             </div>
             <div class="clear"></div>
