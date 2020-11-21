@@ -39,7 +39,7 @@
                     <div class="little_box_control_center one_box_three">
                         <div class="col-md-4">
                             <form>
-                                <textarea id="textInput" class="texte-input" type="text" name="texte-input-chiffrement-hill" rows="4%" cols="72%" placeholder="Saisissez ici votre message à crypter ou à décrypter."></textarea>
+                                <textarea id="textInput" class="texte-input" type="text" name="texte-input-chiffrement-hill" placeholder="Saisissez ici votre message à crypter ou à décrypter."></textarea>
                             </form>
                         </div>
 
@@ -75,7 +75,7 @@
                     <div>
                         <form>
                             <div class="col-xs-12">
-                                <textarea id="textOutput" class="texte-output" type="text" name="textOutput-hill" rows="4%" cols="72%" placeholder="Saisissez un texte à crypter ou à décrypter, puis appuyez sur valider et le texte crypté ou décrypté apparaîtra ici."></textarea>
+                                <textarea id="textOutput" class="texte-output" type="text" name="textOutput-hill" placeholder="Saisissez un texte à crypter ou à décrypter, puis appuyez sur valider et le texte crypté ou décrypté apparaîtra ici."></textarea>
                             </div>
                             <div class="col-xs-12">
 

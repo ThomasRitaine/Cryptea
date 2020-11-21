@@ -13,7 +13,7 @@
         
         <p>Saisissez un texte à crypter ou à décrypter, entrez la valeur du décalage, puis appuyez sur valider.<br />Le texte décrypté ou décrypté apparaîtra alors !</p>
     
-        <div class="container_cryptage">
+        <div class="container_cryptage"> 
             
             <div class="crypt-block">
                 
@@ -60,7 +60,7 @@
                     <div>
                         <form>
                             <div class="col-xs-12">
-                                <textarea id="textOutput" class="texte-output" type="text" name="textOutput-decalage" rows="4%" cols="72%" placeholder="Le texte crypté ou décrypté apparaîtra ici."></textarea>
+                                <textarea id="textOutput" class="texte-output" type="text" name="textOutput-decalage" placeholder="Le texte crypté ou décrypté apparaîtra ici."></textarea>
                             </div>
                             <div class="col-xs-12">
 

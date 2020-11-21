@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -36,4 +36,6 @@ Route::view('/chiffrement/hill', 'pages.chiffrement.hill')->name('hill');
 
 Route::view('/contactez-nous', 'pages.contact')->name('contact');
 
-Route::view('/mon-profil', 'pages.profil')->name('profil');
+    //  Routing of "mon-profil"
+Route::get('/mon-profil', 'UserController@profil')->name('profil')->middleware('auth')->middleware('verified');
+Route::post('/mon-profil', 'UserController@update_avatar')->name('update_avatar');
